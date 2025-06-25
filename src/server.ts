@@ -1,0 +1,25 @@
+import { Server } from 'http';
+import mongoose from 'mongoose';
+import app from './app';
+
+
+let server : Server;
+const PORT = 5000;
+
+async function main() {
+  try {
+    await mongoose.connect(
+      'mongodb+srv://assignmentA3:assignmentA3@cluster0.ubtwufv.mongodb.net/Library?retryWrites=true&w=majority&appName=Cluster0'
+    );
+    console.log('mongodb connected successfully');
+    server = app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('Failed to connect to MongoDB or start server:', error);
+    process.exit(1); // Exit the process with failure code
+  }
+}
+
+main()
+
