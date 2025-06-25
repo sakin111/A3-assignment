@@ -2,6 +2,11 @@ import { Server } from 'http';
 import mongoose from 'mongoose';
 import app from './app';
 
+const dotenv = require('dotenv')
+dotenv.config()
+
+const name = process.env.db_name
+const password = process.env.db_password
 
 let server : Server;
 const PORT = 5000;
@@ -9,7 +14,7 @@ const PORT = 5000;
 async function main() {
   try {
     await mongoose.connect(
-      'mongodb+srv://assignmentA3:assignmentA3@cluster0.ubtwufv.mongodb.net/Library?retryWrites=true&w=majority&appName=Cluster0'
+      `mongodb+srv://${name}:${password}@cluster0.ubtwufv.mongodb.net/Library?retryWrites=true&w=majority&appName=Cluster0`
     );
     console.log('mongodb connected successfully');
     server = app.listen(PORT, () => {
