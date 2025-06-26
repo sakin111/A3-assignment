@@ -9,7 +9,7 @@ const name = process.env.db_name
 const password = process.env.db_password
 
 let server : Server;
-const PORT = 5000;
+const port = process.env.PORT || 5000;
 
 async function main() {
   try {
@@ -17,8 +17,8 @@ async function main() {
       `mongodb+srv://${name}:${password}@cluster0.ubtwufv.mongodb.net/Library?retryWrites=true&w=majority&appName=Cluster0`
     );
     console.log('mongodb connected successfully');
-    server = app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+    server = app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
     });
   } catch (error) {
     console.error('Failed to connect to MongoDB or start server:', error);

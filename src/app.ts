@@ -18,5 +18,9 @@ app.get("/" ,(req : Request, res: Response) =>{
         message: "Welcome to the Express Application"
     })
 })
+app.use((req, res) => {
+  res.status(404).json({ error: 'Not Found' });
+});
+
 
 export default app;
