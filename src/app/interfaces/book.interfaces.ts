@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 
 export interface IBook extends Document{
   _id : mongoose.Types.ObjectId;
@@ -12,4 +12,9 @@ export interface IBook extends Document{
     createdAt: Date; 
   updatedAt: Date; 
   updateAvailability(): void;
+}
+
+
+export interface IBookModel extends Model<IBook> {
+   updateBookAvailability(bookId:string): Promise<IBook>;
 }

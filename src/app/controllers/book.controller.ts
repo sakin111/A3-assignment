@@ -84,6 +84,8 @@ export const updateBook = async (req: Request, res: Response): Promise<void> => 
       res.status(404).json({ success: false, message: "Book not found" });
       return;
     }
+     await Books.updateBookAvailability(req.params.bookId);
+
 
     res.status(200).json({
       success: true,
