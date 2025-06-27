@@ -2,7 +2,7 @@
   "name": "a3-assignment",
   "version": "1.0.0",
   "description": "\"# A3-assignment\"",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
